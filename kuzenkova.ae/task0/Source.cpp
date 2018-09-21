@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <math.h>
 int main() {
@@ -6,12 +7,13 @@ int main() {
 	scanf_s ("%f %f", &r1, &r2);
 	rastoyn = sqrt((x2 - x1)*(x2 - x1) + (y2 - y1)*(y2 - y1));
 	if (rastoyn == 0)
-		if (r2 > r1) printf("1 окружность в 2, и их центры совпадают");
-		else printf("2 окружность в 1, и их центры совпадают");
-	else if (rastoyn + r1 < r2 || rastoyn + r2 < r1) printf("ќкружность внутри окружности");
-	else if ((rastoyn + r1) == r2 || (rastoyn + r2) == r1) printf("ќкружность касаютс€ внутренне");
-	else if (rastoyn < (r1 + r2)) printf("ќкружности пересекаютс€");
-	else if (rastoyn == (r1 + r2)) printf("ќкружности касаютс€ внешне");
-	else if (rastoyn > (r1 + r2)) printf("ќкружности не касаютс€");
-	   
+		if (r2 > r1) printf("1 ÷∆бзй‘÷ген л 2, Ј Јµ §®‘ебс г÷лЎ†¶†Ье");
+		else printf("2 ÷∆бзй‘÷ген л 1, Ј Јµ §®‘ебс г÷лЎ†¶†Ье");
+	else if (rastoyn + r1 < r2 || rastoyn + r2 < r1) printf("„∆бзй‘÷ген л‘зебЈ ÷∆бзй‘÷геЈ");
+	else if ((rastoyn + r1) == r2 || (rastoyn + r2) == r1) printf("„∆бзй‘÷ген ∆†г†Ьегё л‘зеб®‘‘®");
+	else if (rastoyn < (r1 + r2)) printf("„∆бзй‘÷геЈ Ў®б®г®∆†Ьегё");
+	else if (rastoyn == (r1 + r2)) printf("„∆бзй‘÷геЈ ∆†г†Ьегё л‘®х‘®");
+	else if (rastoyn > (r1 + r2)) printf("„∆бзй‘÷геЈ ‘® Ў®б®г®∆†Ьегё");
+	scanf_s("%d", 0);
+	//System("pause");
 }
