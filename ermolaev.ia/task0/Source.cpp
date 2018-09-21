@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <math.h>
-//#include <locate.h>
 
 void main()
 {
-	//setlocale(LC_ALL, "Russian");
 	int x1, y1, r1, x2, y2, r2;
 	printf("x1, y1, r1\n");
 	scanf_s("%d" "%d" "%d", &x1, &y1, &r1);
