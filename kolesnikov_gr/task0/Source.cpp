@@ -16,7 +16,7 @@
 	r1 = 3.0;
 	r2 = 4.0;
 	d = sqrt((x1-x2)*(x1 - x2) + (y1-y2)*(y1 - y2));
-		if (d = 0) {
+		if (d == 0) {
 			if (r1 == r2) printf("Okryzhnosti sovpadayt");
 			else
 				printf("Odna orkuzhnost nahoditsya vnutri drugui");
