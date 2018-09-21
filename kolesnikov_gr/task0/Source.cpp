@@ -2,7 +2,7 @@
 #include <math.h>
  int main()
 {
-	printf("hello world");
+	printf("hello world\n");
 	float ad;
 	float x1, y1;
 	float x2, y2;
