@@ -1,10 +1,8 @@
 #include <stdio.h>
 #include <math.h>
-//#include <locate.h>
 
 void main() 
 {
-	//setlocale(LC_ALL, "Russian");
 	int x1, y1, r1, x2, y2, r2;
 	printf("x1, y1, r1\n");
 	scanf_s("%d" "%d" "%d", &x1, &y1, &r1);
@@ -19,15 +17,15 @@ void main()
 	{
 		printf("Kacanie");
 	}
-	else if ((rast < r1 + r2) && (x1 == x2) && (y1==y2) && (r1 ==r2))
+	else if ((x1 == x2) && (y1==y2) && (r1 ==r2))
 	{
 		printf("Sovpadenie");
 	}
-	else if ((rast < r1 + r2) && ((r2 >= r1) && (x1*x1 + y1 * y1 > r2*r2) || (r1 >= r2) && (x2*x2 + y2 * y2 >= r1*r1)))
+	else if ((r2 >= r1) && (x1*x1 + y1 * y1 > r2*r2) || (r1 >= r2) && (x2*x2 + y2 * y2 >= r1*r1))
 	{
 		printf("Peresek");
 	}
-	else if ((rast < r1 + r2) && ((r2 >= r1) && (x1*x1 + y1 * y1 < r2*r2) || (r1 >= r2) && (x2*x2 + y2 * y2 < r1*r1)))
+	else if ((r2 >= r1) && (x1*x1 + y1 * y1 < r2*r2) || (r1 >= r2) && (x2*x2 + y2 * y2 < r1*r1))
 	{
 		if ((r1 >= r2) && ((r1 - rast) == r2) || (r1 <= r2) && ((r2 - rast) == r1))
 			printf("Kasanie");
