@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
-void main() 
+void main()
 {
 	int x1, y1, r1, x2, y2, r2;
 	printf("x1, y1, r1\n");
@@ -17,23 +17,23 @@ void main()
 	{
 		printf("Kacanie");
 	}
-	else if ((x1 == x2) && (y1==y2) && (r1 ==r2))
+	else if ((x1 == x2) && (y1 == y2) && (r1 == r2))
 	{
 		printf("Sovpadenie");
 	}
-	else if ((r2 >= r1) && (x1*x1 + y1 * y1 > r2*r2) || (r1 >= r2) && (x2*x2 + y2 * y2 >= r1*r1))
+	else if ((r1 >= r2) && ((r1 - rast) == r2) || (r1 <= r2) && ((r2 - rast) == r1))
 	{
-		printf("Peresek");
+		printf("Kasanie");
 	}
-	else if ((r2 >= r1) && (x1*x1 + y1 * y1 < r2*r2) || (r1 >= r2) && (x2*x2 + y2 * y2 < r1*r1))
+	else if ((r1 >= r2) && ((r1 - rast) > r2) || (r1 <= r2) && ((r2 - rast) > r1))
 	{
-		if ((r1 >= r2) && ((r1 - rast) == r2) || (r1 <= r2) && ((r2 - rast) == r1))
-			printf("Kasanie");
-		else if ((r1 >= r2) && ((r1 - rast) > r2) || (r1 <= r2) && ((r2 - rast) > r1))
-			printf("Okr v Okr");
-		else if ((r1 >= r2) && ((r1 - rast) < r2) || (r1 <= r2) && ((r2 - rast) < r1))
-			printf("Peresechenie");
+		printf("Okr v Okr");
 	}
+	else if ((r1 >= r2) && ((r1 - rast) < r2) || (r1 <= r2) && ((r2 - rast) < r1))
+	{
+		printf("Peresechenie");
+	}
+	
 	while (true);
 
 }
