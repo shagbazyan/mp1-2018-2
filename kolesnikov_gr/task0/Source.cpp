@@ -23,7 +23,6 @@ int main()
 			printf("Okryzhnosti sovpadayt");
 		else
 			printf("Odna orkuzhnost nahoditsya vnutri drugui");
-		>>>>>>> master
 	}
 	if (d > (r1 + r2)) printf("Okryzhnosti ne imeut obshih to4ek");
 	if (d == (r1 + r2)) printf("Okryzhnosti kasautsya");
