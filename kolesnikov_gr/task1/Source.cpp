@@ -18,7 +18,11 @@ int main()
 
 	printf("Vvedite visoty(h), shiriny(w) i glubiny(d) v sanrimetrah\n");
 	scanf_s("%f%f%f", &H, &W, &D);
+<<<<<<< HEAD
 	printf("Vvedite plotnost DSP, DVP i dereva v kilogrammah na santimetri kybi4eskie\n");
+=======
+	printf("Vvedite plotnost DSP, DVP i dereva v grammah na santimetri kybi4eskie\n");
+>>>>>>> 7421dddfa886983f842373e0b93e40b361046f0d
 	scanf_s("%f%f%f", &pDSP, &pDVP, &pDEREVA);
 	printf("Vvedite tolshiny zadnei stenki v sanrimetrah\n");
 	scanf_s("%f", &Tzstenki);
@@ -44,6 +48,10 @@ int main()
 	Mpolok = Npolok * pDSP*W*D*Tpolok;
 	printf("Massa polok %f\n", Mpolok);
 	Mobsh = Mzstenki + Mbok + Mkrish + Mdver + Mpolok;
+<<<<<<< HEAD
 	printf("Obshaya Massa Shkafa %5.1f kilogramm\n", Mobsh);
+=======
+	printf("Obshaya Massa Shkafa %f\n", Mobsh);
+>>>>>>> 7421dddfa886983f842373e0b93e40b361046f0d
 	scanf_s("%f", &a);
 }
