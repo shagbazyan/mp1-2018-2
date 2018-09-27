@@ -24,13 +24,13 @@ int main()
 		printf("Enter the thickness of the shelves in mm\n");
 		scanf_s("%f", &shelf_thickness);
 
-		//Считаем количество полок
+		//Calculating the quantity of shelves
 		reminder = (int(height * 10)) % 400;
 		quantity = int(height * 10 / 400);
 		if (reminder < quantity * shelf_thickness)
 			quantity--;
 
-		//Переводим см и мм в м
+		//Translating the cm and mm to m
 		height /= 100.0;
 		width /= 100.0;
 		depth /= 100.0;
