@@ -50,6 +50,5 @@ int main()
 		printf("Want to enter new parameters of the wardrobe?\n");
 		printf("1 - Yes; 0 - No\n");
 		scanf_s("%d", &another);
-
 	} while (another == 1);
 }
