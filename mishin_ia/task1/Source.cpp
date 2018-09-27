@@ -2,10 +2,10 @@
 
 int main() {
 	int width, heigth, deep;
-	float densityDSP = 0.8, densityDVP = 0.75, densityWood = 0.5;// γ/ρμ^3
+	float densityDSP = 0.8, densityDVP = 0.75, densityWood = 0.5;// Γ£/Γ±Γ¬^3
 	int volumeDSP, volumeDVP, volumeWood;
 	float weight;
-	scanf_s("%d,%d,%d", &heigth, &width, &deep);
+	scanf_s("%d %d %d", &heigth, &width, &deep);
 
 	width *= 10;
 	heigth *= 10;
@@ -17,13 +17,13 @@ int main() {
 	volumeDSP += width * heigth * 10;
 	volumeWood = width * deep * 15 * ((heigth - 15) / 400);
 	
-	volumeDSP /= 1000;// οεπεβξδ β ρμ^3
+	volumeDSP /= 1000;// Γ―Γ₯Γ°Γ₯Γ’Γ®Γ€ Γ’ Γ±Γ¬^3
 	volumeDVP /= 1000;
 	volumeWood /= 1000;
 	
 	weight = volumeDSP * densityDSP + volumeDVP * densityDVP + volumeWood * densityWood;
 
-	printf("%f", weight);
+	printf("%f", weight/1000);
 	scanf_s("%d", &width);
 	return 0;
 }
