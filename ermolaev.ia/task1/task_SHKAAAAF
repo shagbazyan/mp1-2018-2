@@ -89,7 +89,7 @@ void main()
 	d_10 = d * 0.01;
 	w_10 = w * 0.01;
 	l_10 = l * 0.01;
-	float xolst_daun = 0.010; 
+	float xolst_dun = 0.010; 
 	printf("DVP, DSP, Wood kg/m^3 \n");
 	printf("Tolshyna polki = 0.010\n");
 	scanf_s("%f" "%f" "%f", &DVD, &DSP, &drevesina);
@@ -99,7 +99,7 @@ void main()
 	float massa_krysha = massa(DSP, v(l_10, w_10, xolst_krysha));
 	float massa_door = 2 * massa(DSP, v(d_10, w_10, xolst_door));
 	del = d-2*xolst_krysha / 40;
-	float massa_polka = del * massa(DSP, v(w_10 - xolst_bok * 2, l_10 - xolst_zad, xolst_daun));
+	float massa_polka = del * massa(DSP, v(w_10 - xolst_bok * 2, l_10 - xolst_zad, xolst_dun));
 	sum =massa_bok + massa_door +massa_krysha +massa_zad+massa_polka;
 	printf("zad= %f bok= %f krysha= %f door= %f polka %f ", massa_zad, massa_bok, massa_krysha, massa_door, massa_polka, "\n");
 	printf("Massa  = %f kg", sum);
