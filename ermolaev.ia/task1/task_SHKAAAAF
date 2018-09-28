@@ -1,0 +1,201 @@
+#include <stdio.h>
+void probel(int shag) 
+{
+	int i = 1;
+	while (i <= shag)
+	{
+		printf(" ");
+		i++;
+	}
+}
+float v(float d, float w, float l)
+{
+	return (d*w*l);
+}
+float massa(float p0, float v)
+{
+	return(p0*v);
+}
+
+void polka(int j, int kol_n) 
+{
+
+		switch (j % 8)
+		{
+			case 0:
+			{
+				printf("/");
+				for (int k = 2; k <= kol_n; k++)
+				{
+					printf("_");
+				}
+				break;
+			}
+			case 7:
+			{
+				printf(" /");
+				probel(kol_n - 2);
+				break;
+			}
+			case 6:
+			{
+				printf("  /");
+				probel(kol_n - 3);
+				break;
+			}
+			case 5:
+			{
+				printf("   /");
+				probel(kol_n - 4);
+				break;
+			}
+			case 4:
+			{
+				printf("    /");
+				probel(kol_n - 5);
+				break;
+			}
+			case 3:
+			{
+				printf("     /");
+				probel(kol_n - 6);
+				break;
+			}
+			case 2:
+			{
+				printf("      /");
+				probel(kol_n - 7);
+				break;
+			}
+			case 1:
+			{
+				printf("       /");
+				probel(kol_n - 8);
+				break;
+			}
+		}
+	
+}
+
+void main()
+{
+	printf("input height, weight, glubina v sm\n");
+	int d, w, l, del, otcyp; // d - высота DVD, w - ширина DVD, l -ГЛУБИНЫ АДА DSP
+	float DVD, DSP, drevesina, d_10, w_10, l_10, sum;
+	scanf_s("%d" "%d" "%d", &d, &w, &l);
+	float  xolst_zad = 0.005; // DVD
+	float  xolst_bok = 0.015, xolst_krysha = 0.015;//DSP
+	float  xolst_door = 0.010;//DSP
+	d_10 = d * 0.01;
+	w_10 = w * 0.01;
+	l_10 = l * 0.01;
+	float xolst_daun = 0.010; 
+	printf("DVP, DSP, Wood kg/m^3 \n");
+	printf("Tolshyna polki = 0.010\n");
+	scanf_s("%f" "%f" "%f", &DVD, &DSP, &drevesina);
+	int obl;
+	float massa_zad = massa(DVD, v(d_10, w_10, xolst_zad));
+	float massa_bok = 2 * massa(DSP, v(d_10, l_10, xolst_bok));
+	float massa_krysha = massa(DSP, v(l_10, w_10, xolst_krysha));
+	float massa_door = 2 * massa(DSP, v(d_10, w_10, xolst_door));
+	del = d-2*xolst_krysha / 40;
+	float massa_polka = del * massa(DSP, v(w_10 - xolst_bok * 2, l_10 - xolst_zad, xolst_daun));
+	sum =massa_bok + massa_door +massa_krysha +massa_zad+massa_polka;
+	printf("zad= %f bok= %f krysha= %f door= %f polka %f ", massa_zad, massa_bok, massa_krysha, massa_door, massa_polka, "\n");
+	printf("Massa  = %f kg", sum);
+	printf("\n");
+
+
+
+
+
+	int i, j, o = 1;
+	int kol_p = (d / 10) * 2;
+	int kol_kriv = (l / 10) * 2;
+	int kol_n = (w / 10) * 3;
+	bool flag = true;
+	otcyp = kol_p % 8;
+	printf("Draw SHKAF(mashtab 5 sm)\n");
+	obl = kol_kriv;
+	printf(" ");
+	probel(obl);
+	// 1 строка(потолок шкафа) 
+	for (i=1; i<=kol_n; i++)
+	{
+		printf("_");
+	}
+	printf("\n");
+	//тело потолка
+	for (j = 1; j <= kol_kriv-1; j++) 
+	{
+		probel(obl - j+1);
+		printf_s("/");
+		probel(kol_n);
+		printf_s("/");
+		if (kol_kriv - j < obl) 
+		{
+			probel(obl + j - kol_kriv-1);
+			printf("|");
+		}
+		printf("\n");
+	}
+	obl = obl + j - kol_kriv - 1;
+	printf(" /"); //конец потолка
+	for (i=1; i<=kol_n; i++)
+	{
+		printf("_");
+	}
+	printf("/");
+	probel(obl);
+	printf("|\n");
+	//ШКАААААФ
+	for (j = 1; j <= kol_p-1; j++)
+	{
+		printf(" |");
+		if (((kol_p - j > 8)||(j%8!=1))&&(flag==true))
+		{
+			polka(j, kol_n);
+		}
+		else
+		{
+			flag = false;
+			for (int k = 1; k <= kol_p - j; k++)
+			{
+				printf(" ");
+			}
+			if (kol_p - j >= 1)
+			{
+				printf("/");
+			}
+			else
+				printf(" ");
+			for (int k = kol_p - j + 1; k <kol_n; k++)
+			{
+				printf(" ");
+			}
+		}
+		printf("|");
+		if (kol_p - j >= kol_kriv) 
+		{
+			probel(obl);
+			printf("|");
+		}
+		else
+		{
+			probel(kol_p - j);
+			printf("/");
+		}
+		printf("\n");
+	}
+	printf(" |/");
+
+	for (i = 2; i <= kol_n; i++) 
+	{
+		printf("_");
+	}
+	printf("|/");
+	while (true);
+
+}
+
+
