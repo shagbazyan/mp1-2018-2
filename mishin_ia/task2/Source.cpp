@@ -52,8 +52,8 @@ int main() {
 		while (flag == 0) {
 			attemps++;
 					
-			r = rand() % up + bottom;
-			if (r > up) { r %= bottom; };
+			r = rand() % (up-bottom+1) + bottom;
+			
 			printf("Is it number %d ?\n", r);
 			printf("%d,%d\n", up, bottom);
 			scanf_s("%c", &point);
@@ -81,14 +81,15 @@ int main() {
 		
 
 	}
-	/*int i, r;
+	
+	
 
-	srand(time(NULL));
-	for (i = 0; i < 10; i++) {
-		r = rand()%1000;
-		printf("%d\n", r);
-	}
-	*/
+	
+	
+		
+
+	
+	
 
 	printf("Your attemps: %d", attemps);
 	_getch();
