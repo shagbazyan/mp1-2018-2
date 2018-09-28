@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\source\repos\Kol_nya\Kol_nya\KAKASHKA.cpp">
+    <ClCompile Include="PsevdoKakashka.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
