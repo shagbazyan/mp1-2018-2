@@ -8,8 +8,10 @@ int main() {
 
 	srand(time(NULL));
 	int game, attemps = 0;
+	char point;
 	printf("Choose game: write 1 for first mode, 2 for second mode \n");
 	scanf_s("%d", &game);
+	
 	printf("Start\nEnter number between 1 and 1000 \n");
 
 	if (game == 1) {
@@ -43,15 +45,18 @@ int main() {
 	{
 		int player,r, bottom = 1, up = 10;
 		scanf_s("%d", &player);
-		char point;
+		
+		
 		short int flag = 0;
 
 		while (flag == 0) {
 			attemps++;
 					
 			r = rand() % up + bottom;
+			if (r > up) { r %= bottom; };
 			printf("Is it number %d ?\n", r);
 			printf("%d,%d\n", up, bottom);
+			scanf_s("%c", &point);
 			scanf_s("%c", &point);
 			
 			if (point == '=') {
@@ -63,6 +68,7 @@ int main() {
 				if (point == '>') {
 					printf("Ok!\n");
 					bottom = r;
+
 					
 				}
 				if (point == '<')
