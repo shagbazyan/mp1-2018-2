@@ -10,7 +10,7 @@ int random(int a, int b)
 		return a + rand() % (b - a);
 }
 
-int gadalka(int d_1, int d_2, int n)
+/*int gadalka(int d_1, int d_2, int n)
 {
 	char ci;
 	int g = random(d_1, d_2);
@@ -29,7 +29,7 @@ int gadalka(int d_1, int d_2, int n)
 		return n;
 
 	//У меня возник вопрос, почему эта функция не работала? (при попытке использования ее, он банально не читал 	scanf_s("%c", &ci);) воооооот.
-}
+} */
 void main()
 {
 	setlocale(LC_ALL, "Rus");
