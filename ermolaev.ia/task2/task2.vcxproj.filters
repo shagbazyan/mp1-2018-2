@@ -11,7 +11,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PsevdoKakashka.cpp">
+    <ClCompile Include="PsevdoGadalka.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,8 +9,32 @@ int random(int a, int b)
 	if (a > 0)
 		return a + rand() % (b - a);
 }
-
-int gadalka(int d_1, int d_2, int n)
+void ostro_fras(int a)
+{
+	switch (a)
+	{
+	case 1:
+	{
+		printf("Ты все еще не угадал, эх мне так жаль тебя. \n");
+		break;
+	}
+	case 2:
+	{
+		printf("Еще чуть-чуть и у тебя получится отгадать число. \n");
+		break;
+	}
+	case 3:
+	{
+		printf("Даже я уже знаю это число, а ты до сих пор нет. \n");
+		break;
+	}
+	case 4:
+	{
+		printf("Удача отвернулась от тебя пользователь. Мухахахаххахa. \n");
+	}
+	}
+}
+/*int gadalka(int d_1, int d_2, int n)
 {
 	char ci;
 	int g = random(d_1, d_2);
@@ -27,14 +51,10 @@ int gadalka(int d_1, int d_2, int n)
 	}
 	else
 		return n;
-
-	//У меня возник вопрос, почему эта функция не работала? (при попытке использования ее, он банально не читал 	scanf_s("%c", &ci);) воооооот.
-}
+}*/
 void main()
 {
 	setlocale(LC_ALL, "Rus");
-
-
 	int choose;
 	printf("Кого унижать вас(1) или компьюктер(2)???\n");
 	scanf_s("%d", &choose);
@@ -44,9 +64,9 @@ void main()
 		printf("Загаданное число компом = %d \n", i);
 		bool flag = true;
 		int a;
+		printf("Компьютер уже загадал число в диапазоне от 1 до 1000, а чего ждешь ты? Отгадывай давай!\n");
 		while (flag)
 		{
-			printf("Компьютер уже загадал число в диапазоне от 1 до 1000, а чего ждешь ты? Отгадывай давай!\n");
 			scanf_s("%d", &a);
 			if (i == a)
 			{
@@ -55,7 +75,7 @@ void main()
 			}
 			else
 			{
-				printf("Вы не угадали продолжайте мучения дальше. МУАХАХАХАХА\n");
+				ostro_fras(random(1, 4));
 				if (a > i)
 					printf("Дам подсказку, твое число больше нужного тебе числа\n");
 				else
@@ -94,7 +114,6 @@ void main()
 			}
 		}
 
-		//n= gadalka(d_1, d_2, n );
 		printf("Компьютер вас превзошел и отгадал с %d попытки?", n);
 	}
 
@@ -102,8 +121,6 @@ void main()
 
 
 }
-
-
 
 
 
