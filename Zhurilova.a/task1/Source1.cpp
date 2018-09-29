@@ -34,5 +34,5 @@ void main()
 	
 	Mas = masz + masb + masv + masdv + masp;//Расчет массы всего шкафа
 	
-	ptintf("Масса шкафа %d", Mas);
+	printf("Масса шкафа %d", Mas);
 }
