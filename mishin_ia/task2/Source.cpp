@@ -15,16 +15,16 @@ int main() {
 	printf("Start\nEnter number between 1 and 1000 \n");
 
 	if (game == 1) {
-		int r;
+		int r, bottom = 1, up = 1000;;
 		int player;
-		r = rand() % 10 + 1;
+		r = rand() % up + bottom;
 		short int flag = 0;
 			
 		while (flag == 0) {
 			attemps++;
 			scanf_s("%d", &player);
 			if (player == r) {
-				printf("You win\n");
+				printf("\nYou win\n");
 				flag = 1;
 			}
 			else
@@ -38,14 +38,11 @@ int main() {
 				}
 			}
 		}
-	
-		
 	}
 	else
 	{
-		int player,r, bottom = 1, up = 10;
+		int player,r, bottom = 1, up = 1000;
 		scanf_s("%d", &player);
-		
 		
 		short int flag = 0;
 
@@ -55,44 +52,32 @@ int main() {
 			r = rand() % (up-bottom+1) + bottom;
 			
 			printf("Is it number %d ?\n", r);
-			printf("%d,%d\n", up, bottom);
 			scanf_s("%c", &point);
 			scanf_s("%c", &point);
 			
-			if (point == '=') {
-				printf("You win\n");
-				flag = 1;
-			}
-			else
+			switch (point)
 			{
-				if (point == '>') {
-					printf("Ok!\n");
-					bottom = r;
-
-					
+				case('='): {
+					printf("\nYeah! I am win\n");
+					flag = 1;
+					break;
 				}
-				if (point == '<')
-				{
+				case('<'): {
 					printf("Ok!\n");
-					up = r;
+					up = r - 1;
+					break;
 				}
+				case('>'): {
+					printf("Ok!\n");
+					bottom = r + 1;
+					break;
+				}
+			default:
+				break;
 			}
 		}
-		
-
 	}
-	
-	
-
-	
-	
-		
-
-	
-	
-
-	printf("Your attemps: %d", attemps);
+	printf("Attemps: %d", attemps);
 	_getch();
 	return 0;
-
 }
