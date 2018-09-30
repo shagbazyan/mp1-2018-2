@@ -10,7 +10,7 @@ int main()
 	int attempt = 0;
 	char more, less;
 	srand(time(NULL));
-	numb = (rand()%1000 + 1);
+	numb = (rand() % 1000 + 1);
 	attempt = 0;
 	i = 0;
 	printf("Введите номер желаемого режима\n 1) Вы отгадываете число\n 2) Программа отгадывает число\n");
@@ -26,10 +26,10 @@ int main()
 		else
 			if (i < numb)
 				printf("Загаданное число больше\n");
-			else 
+			else
 				printf("Вы угадали!\n");
 		printf("Количество попыток %i\n", attempt);
 	}
-		scanf_s("%i", &end);
-		return 0;
+	scanf_s("%i", &end);
+	return 0;
 }
