@@ -17,26 +17,26 @@ int main()
 	int truth;
 	char neravenstvo;
 
-	printf("Выберите режим игры: нажмите 1, чтобы угадывать число; нажми 2, чтобы загадывать\n");
+	printf("Р’С‹Р±РµСЂРёС‚Рµ СЂРµР¶РёРј РёРіСЂС‹: РЅР°Р¶РјРёС‚Рµ 1, С‡С‚РѕР±С‹ СѓРіР°РґС‹РІР°С‚СЊ С‡РёСЃР»Рѕ; РЅР°Р¶РјРё 2, С‡С‚РѕР±С‹ Р·Р°РіР°РґС‹РІР°С‚СЊ\n");
 	scanf_s("%d", &rejim);
 	if (rejim > 2)
-		printf("Такого режима еще нет(пока что)\n");
+		printf("РўР°РєРѕРіРѕ СЂРµР¶РёРјР° РµС‰Рµ РЅРµС‚(РїРѕРєР° С‡С‚Рѕ)\n");
 	if (rejim == 1)
 	{
 		predpolozhenie = -1;
 		popitki = 0;
 		chislo = rand() % 1001;
-		printf("%i\n", chislo); //  для проверки
+		printf("%i\n", chislo); //  РґР»СЏ РїСЂРѕРІРµСЂРєРё
 		while (predpolozhenie != chislo)
 		{
 			popitki = popitki + 1;
-			printf("Введите ваше предположение\n");
+			printf("Р’РІРµРґРёС‚Рµ РІР°С€Рµ РїСЂРµРґРїРѕР»РѕР¶РµРЅРёРµ\n");
 			scanf_s("%d", &predpolozhenie);
 			if (predpolozhenie == chislo)
-				printf("Вы нашли загаданное число. Количество попыток: %d \n", popitki);
+				printf("Р’С‹ РЅР°С€Р»Рё Р·Р°РіР°РґР°РЅРЅРѕРµ С‡РёСЃР»Рѕ. РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє: %d \n", popitki);
 			else if (predpolozhenie > chislo)
-				printf("Загаданное число меньше\n");
-			else printf("Загаданное число больше\n");
+				printf("Р—Р°РіР°РґР°РЅРЅРѕРµ С‡РёСЃР»Рѕ РјРµРЅСЊС€Рµ\n");
+			else printf("Р—Р°РіР°РґР°РЅРЅРѕРµ С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ\n");
 		}
 	}
 
@@ -45,7 +45,7 @@ int main()
 		max = 1000;
 		min = 0;
 		truth = 0;
-		printf("Введите число\n");
+		printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ\n");
 		scanf_s("%d", &chislo);
 		popitki = 0;
 		predpolozhenie = -1;
@@ -53,14 +53,14 @@ int main()
 		{
 			popitki = popitki + 1;
 			predpolozhenie = rand () % (max-min) + min;
-			printf("Вы загадали число %d ?\n", predpolozhenie);
+			printf("Р’С‹ Р·Р°РіР°РґР°Р»Рё С‡РёСЃР»Рѕ %d ?\n", predpolozhenie);
 			scanf_s("%c", &neravenstvo);
 			scanf_s("%c", &neravenstvo);
 			switch (neravenstvo)
 			{
 			    case('='):
 			    {
-				    printf("Ну я так и знал, что вы загадали именно это число. Количество попыток: %d", popitki);
+				    printf("РќСѓ СЏ С‚Р°Рє Рё Р·РЅР°Р», С‡С‚Рѕ РІС‹ Р·Р°РіР°РґР°Р»Рё РёРјРµРЅРЅРѕ СЌС‚Рѕ С‡РёСЃР»Рѕ. РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє: %d", popitki);
 				    predpolozhenie = chislo;
 				    break;
 			    }
