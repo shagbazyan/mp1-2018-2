@@ -20,17 +20,17 @@ int main()
 	printf("Выберите режим игры: нажмите 1, чтобы угадывать число; нажми 2, чтобы загадывать\n");
 	scanf_s("%d", &rejim);
 	if (rejim > 2)
-		printf("Такого режима еще нет(пока что)\n");
+		printf("Такого режима нет(пока что)\n");
 	if (rejim == 1)
 	{
 		predpolozhenie = -1;
 		popitki = 0;
-		chislo = rand() % 1001;
+		chislo = rand() % 1000 + 1;
 		printf("%i\n", chislo); //  для проверки
 		while (predpolozhenie != chislo)
 		{
 			popitki = popitki + 1;
-			printf("Введите ваше предположение\n");
+			printf("Введите число от 1 до 1000\n");
 			scanf_s("%d", &predpolozhenie);
 			if (predpolozhenie == chislo)
 				printf("Вы нашли загаданное число. Количество попыток: %d \n", popitki);
@@ -44,8 +44,7 @@ int main()
 	{
 		max = 1000;
 		min = 0;
-		truth = 0;
-		printf("Введите число\n");
+		printf("Введите число от 1 до 1000\n");
 		scanf_s("%d", &chislo);
 		popitki = 0;
 		predpolozhenie = -1;
