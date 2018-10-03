@@ -88,8 +88,8 @@ void main()
 		scanf_s("%d", &choose);
 		if (choose == 1)
 		{
-			int i = random(1, 1000);
-			//printf("Загаданное число компом = %d \n", i);
+			int i = random(1, 1001);
+			printf("Загаданное число компом = %d \n", i);
 			bool flag = true;
 			int a;
 			printf("Компьютер уже загадал число в диапазоне от 1 до 1000, а чего ждешь ты? Отгадывай давай!\n");
@@ -119,7 +119,7 @@ void main()
 			scanf_s("%d", &b);
 			n = 1;
 			d_1 = 1;
-			d_2 = 1000;
+			d_2 = 1001;
 			ch = random(d_1, d_2);
 			printf("Очередной ответ компа %d \n", ch);
 
@@ -128,15 +128,15 @@ void main()
 				scanf_s("%c", &otvet);
 				if (otvet == '>')
 				{
-					d_1 = ch;
-					ch = random(d_1, d_2) + 1;
+					d_1 = ch + 1;
+					ch = random(d_1, d_2);
 					printf("Очередной ответ компа %d \n", ch);
 					n++;
 				}
 				else if (otvet == '<')
 				{
-					d_2 = ch;
-					ch = random(d_1, d_2) + 1;
+					d_2 = ch - 1;
+					ch = random(d_1, d_2);
 					printf("Очередной ответ компа %d \n", ch);
 					n++;
 				}
@@ -148,22 +148,22 @@ void main()
 		{
 			printf("Ладно, давай теперь сыграем в довольно типичную для человека игру. Узнаем кто лучше угадывает числа, ты или компьютер?");
 			int komp_mind, komp_gaduka, people_mind, d_1, d_2;
-			komp_gaduka = random(1, 1000);
+			komp_gaduka = random(1, 1001);
 			printf("Компьютер уже загадал число в диапазоне от 1 до 1000, а чего ждешь ты? Будь разумнее, ведь ты соревнуешься с машиной =)\n");
 			int flag = 0; // 1-победа человека, 2- победа компьютера, 4 - ничья? 
 			d_1 = 1;
-			d_2 = 1000;
+			d_2 = 1001;
 			while (flag == 0)
 			{
 
 				printf("Компьютер уже дал ответ. Давай, не подведи человечество!!!! Мы верим в тебя!! \n");
 				scanf_s("%d", &people_mind);
-				komp_mind = random(d_1, d_2) + 1;
+				komp_mind = random(d_1, d_2);
 				//printf("Ответ компьютера: %d\n", komp_mind);
 				if (answer(komp_mind, komp_gaduka) == '>')
-					d_2 = komp_mind;
+					d_2 = komp_mind - 1;
 				else if (answer(komp_mind, komp_gaduka) == '<')
-					d_1 = komp_mind;
+					d_1 = komp_mind + 1;
 				else
 					flag = 2;
 				if (komp_gaduka < people_mind)
@@ -200,7 +200,7 @@ void main()
 			printf("Теперь вы загадайте число. Компьютер тоже загадал вам число.\n Посмотрим кто быстрее.\n");
 			int komp_zagadka, komp_ygadaika, people_zagadka, people_ygadalka, d_1_4, d_2_4;
 			d_1_4 = 1;
-			d_2_4 = 1000;
+			d_2_4 = 1001;
 			komp_zagadka = random(d_1_4, d_2_4);
 			printf("Введите число, которое будет угадывать компьютер:\n");
 			scanf_s("%d", &people_zagadka);
@@ -210,12 +210,12 @@ void main()
 			int flag_4 = 0;
 			while (flag_4 == 0)
 			{
-				komp_ygadaika = random(d_1_4, d_2_4) + 1;
+				komp_ygadaika = random(d_1_4, d_2_4);
 				//printf("Ответ компьютера: %d\n", komp_ygadaika);
 				if (answer(komp_ygadaika, people_zagadka) == '>')
-					d_2_4 = komp_ygadaika;
+					d_2_4 = komp_ygadaika - 1;
 				else if (answer(komp_ygadaika, people_zagadka) == '<')
-					d_1_4 = komp_ygadaika;
+					d_1_4 = komp_ygadaika + 1;
 				else
 					flag_4 = 2;
 				printf("Введите ваш ответ: \n");
