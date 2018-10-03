@@ -13,16 +13,16 @@ void main()
 	char Cinp, tmp;
 	srand(time(NULL));
 
-	printf("РљС‚Рѕ Р±СѓРґРµС‚ СѓРіР°РґС‹РІР°С‚СЊ? Р’С‹ (1) РёР»Рё РєРѕРјРїСЊСЋС‚РµСЂ (2) ?:\n");
+	printf("Кто будет угадывать? Вы (1) или компьютер (2) ?:\n");
 	scanf_s("%d", &type);
 
 	while (type != 1 && type != 2)
 	{
-		printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ.\n");
+		printf("Некорректный ввод.\n");
 		scanf_s("%d", &type);
 	}
 
-	if(type == 1) 
+	if (type == 1)
 	{
 		ger = (rand() % 1001);
 		inp = -1;
@@ -30,19 +30,20 @@ void main()
 
 		while (inp != ger)
 		{
-			printf("Р’РІРµРґРёС‚Рµ Р’Р°С€ РІР°СЂРёР°РЅС‚ С‡РёСЃР»Р°:\n");
+			printf("Введите Ваш вариант числа:\n");
 			scanf_s("%d", &inp);
 			count++;
 			if (inp == ger)
-				printf("Р’С‹ СѓРіР°РґР°Р»Рё Р·Р° %d РїРѕРїС‹С‚РѕРє!\n", count);
+				printf("Вы угадали за %d попыток!\n", count);
 			else if (inp > ger)
-				printf("Р’С‹ РІРІРµР»Рё СЃР»РёС€РєРѕРј Р±РѕР»СЊС€РѕРµ С‡РёСЃР»Рѕ!\n");
+				printf("Вы ввели слишком большое число!\n");
 			else
-				printf("Р’С‹ РІРІРµР»Рё СЃР»РёС€РєРѕРј РјР°Р»РµРЅСЊРєРѕРµ С‡РёСЃР»Рѕ!\n");
+				printf("Вы ввели слишком маленькое число!\n");
 		}
-	} else
+	}
+	else
 	{
-		printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ РѕС‚ 1 РґРѕ 1000:\n");
+		printf("Введите число от 1 до 1000:\n");
 		scanf_s("%d", &inp);
 		scanf_s("%c", &Cinp);
 		count = 0;
@@ -53,9 +54,9 @@ void main()
 		bool vic = false;
 
 		while (!vic)
-		{			
-			printf_s("Р’Р°СЂРёР°РЅС‚ РєРѕРјРїСЊСЋС‚РµСЂР°: %d\n", ger);
-			printf_s("Р§РёСЃР»Рѕ РєРѕРјРїСЊСЋС‚РµСЂР° РґРѕР»Р¶РЅРѕ Р±С‹С‚СЊ Р±РѕР»СЊС€Рµ '>' РјРµРЅСЊС€Рµ '<' РёР»Рё РѕРЅ СѓРіР°РґР°Р» '=' ?:\n");
+		{
+			printf_s("Вариант компьютера: %d\n", ger);
+			printf_s("Число компьютера должно быть больше '>' меньше '<' или он угадал '=' ?:\n");
 
 			count++;
 			scanf_s("%c", &Cinp);
@@ -63,19 +64,19 @@ void main()
 
 			switch (Cinp)
 			{
-				case '>':
-					min = (ger < min ? min : ger) + 1;
-					break;
-				case '<':
-					max = (ger > max ? max : ger);
-					break;
-				case '=':
-					printf("РљРѕРјРїСЊСЋС‚РµСЂ СѓРіР°РґР°Р» Р·Р° %d РїРѕРїС‹С‚РѕРє!\n", count);
-					vic = true;
-					break;
-				default:
-					printf("Р’РІРµРґРёС‚Рµ > < РёР»Рё =\n");
-					break;
+			case '>':
+				min = (ger < min ? min : ger) + 1;
+				break;
+			case '<':
+				max = (ger > max ? max : ger);
+				break;
+			case '=':
+				printf("Компьютер угадал за %d попыток!\n", count);
+				vic = true;
+				break;
+			default:
+				printf("Введите > < или =\n");
+				break;
 			}
 
 			ger = min + rand() % (max - min);
