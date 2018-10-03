@@ -2,7 +2,7 @@
 #include <math.h>
 #include <locale.h>
 
-int main(voit)
+int main(void)
 {
 	setlocale(LC_ALL, "Rus");
 	float h, w, d, l, L, Vp, Vb, Vd, Vz, Vk, m;//высота, ширина, глубина, для полок;
