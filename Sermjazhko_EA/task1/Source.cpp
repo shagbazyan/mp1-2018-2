@@ -23,7 +23,7 @@ int main(void)
 		scanf_s("%f", &d);
 	}
 	L = floor((h - 0.3) / (40.0 + 1.0));
-	printf("количество полок = &f\n", L);
+	printf("количество полок = %f\n", L);
 
 	Vp = l * (w - 0.3)*d;
 	Vb = 0.3*(d + 1.05)*(h - 0.3);
@@ -31,5 +31,5 @@ int main(void)
 	Vz = 0.05*(h - 0.3)*w;
 	Vk = 0.3*(d + 1.05);
 	m = Vz * dvp + Vb * dsp + Vd * p + Vk * dsp + Vp * dsp;
-	printf("Масса шкафа в кг = &f", m / 1000);
+	printf("Масса шкафа в кг = %f", m / 1000);
 }
