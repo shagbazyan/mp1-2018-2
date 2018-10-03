@@ -8,13 +8,21 @@ void main()
 {
 	setlocale(LC_ALL, "Rus");
 
-	bool type;
+	int type = 0;
 	int inp, ger, count;
 	char Cinp, tmp;
 	srand(time(NULL));
 
-	// Ïåðâûé Ðåæèì 
-	/*
+	printf("ÐšÑ‚Ð¾ Ð±ÑƒÐ´ÐµÑ‚ ÑƒÐ³Ð°Ð´Ñ‹Ð²Ð°Ñ‚ÑŒ? Ð’Ñ‹ (1) Ð¸Ð»Ð¸ ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€ (2) ?:\n");
+	scanf_s("%d", &type);
+
+	while (type != 1 && type != 2)
+	{
+		printf("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´.\n");
+		scanf_s("%d", &type);
+	}
+
+	if(type == 1) 
 	{
 		ger = (rand() % 1001);
 		inp = -1;
@@ -22,46 +30,56 @@ void main()
 
 		while (inp != ger)
 		{
-			printf("Ââåäèòå Âàø âàðèàíò ÷èñëà:\n");
+			printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð’Ð°Ñˆ Ð²Ð°Ñ€Ð¸Ð°Ð½Ñ‚ Ñ‡Ð¸ÑÐ»Ð°:\n");
 			scanf_s("%d", &inp);
 			count++;
 			if (inp == ger)
-				printf("Âû óãàäàëè çà %d ïîïûòîê!\n", count);
+				printf("Ð’Ñ‹ ÑƒÐ³Ð°Ð´Ð°Ð»Ð¸ Ð·Ð° %d Ð¿Ð¾Ð¿Ñ‹Ñ‚Ð¾Ðº!\n", count);
 			else if (inp > ger)
-				printf("Âû ââåëè ñëèøêîì áîëüøîå ÷èñëî!\n");
+				printf("Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð±Ð¾Ð»ÑŒÑˆÐ¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾!\n");
 			else
-				printf("Âû ââåëè ñëèøêîì ìàëåíüêîå ÷èñëî!\n");
+				printf("Ð’Ñ‹ Ð²Ð²ÐµÐ»Ð¸ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ Ð¼Ð°Ð»ÐµÐ½ÑŒÐºÐ¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾!\n");
 		}
-	} 
-	*/
-
-	// Âòîðîé ðåæèì
+	} else
 	{
-		printf("Ââåäèòå ÷èñëî îò 1 äî 1000:\n");
+		printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ‡Ð¸ÑÐ»Ð¾ Ð¾Ñ‚ 1 Ð´Ð¾ 1000:\n");
 		scanf_s("%d", &inp);
 		scanf_s("%c", &Cinp);
 		count = 0;
 		ger = 0;
 		ger = (rand() % 1001);
+		int min, max;
+		min = 0; max = 1001;
+		bool vic = false;
 
-		while (ger != inp)
+		while (!vic)
 		{			
-			printf_s("Âàðèàíò êîìïüþòåðà: %d\n", ger);
+			printf_s("Ð’Ð°Ñ€Ð¸Ð°Ð½Ñ‚ ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€Ð°: %d\n", ger);
+			printf_s("Ð§Ð¸ÑÐ»Ð¾ ÐºÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€Ð° Ð´Ð¾Ð»Ð¶Ð½Ð¾ Ð±Ñ‹Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ '>' Ð¼ÐµÐ½ÑŒÑˆÐµ '<' Ð¸Ð»Ð¸ Ð¾Ð½ ÑƒÐ³Ð°Ð´Ð°Ð» '=' ?:\n");
 
 			count++;
 			scanf_s("%c", &Cinp);
 			scanf_s("%c", &tmp);
 
-			if (Cinp == '<')
-				ger += (rand() % (1000 - ger));
-			else if (Cinp == '>')
-				ger -= (rand() % ger);
-			else if (inp == '=')
-				printf("Êîìïüþòåð óãàäàë çà %d ïîïûòîê!\n", count);
+			switch (Cinp)
+			{
+				case '>':
+					min = (ger < min ? min : ger) + 1;
+					break;
+				case '<':
+					max = (ger > max ? max : ger);
+					break;
+				case '=':
+					printf("ÐšÐ¾Ð¼Ð¿ÑŒÑŽÑ‚ÐµÑ€ ÑƒÐ³Ð°Ð´Ð°Ð» Ð·Ð° %d Ð¿Ð¾Ð¿Ñ‹Ñ‚Ð¾Ðº!\n", count);
+					vic = true;
+					break;
+				default:
+					printf("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ > < Ð¸Ð»Ð¸ =\n");
+					break;
+			}
+
+			ger = min + rand() % (max - min);
 		}
-
 	}
-
 	_getch();
-
 }
