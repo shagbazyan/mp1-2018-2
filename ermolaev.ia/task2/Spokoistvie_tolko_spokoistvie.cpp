@@ -135,7 +135,7 @@ void main()
 				}
 				else if (otvet == '<')
 				{
-					d_2 = ch - 1;
+					d_2 = ch;
 					ch = random(d_1, d_2);
 					printf("Очередной ответ компа %d \n", ch);
 					n++;
@@ -161,7 +161,7 @@ void main()
 				komp_mind = random(d_1, d_2);
 				//printf("Ответ компьютера: %d\n", komp_mind);
 				if (answer(komp_mind, komp_gaduka) == '>')
-					d_2 = komp_mind - 1;
+					d_2 = komp_mind;
 				else if (answer(komp_mind, komp_gaduka) == '<')
 					d_1 = komp_mind + 1;
 				else
@@ -213,7 +213,7 @@ void main()
 				komp_ygadaika = random(d_1_4, d_2_4);
 				//printf("Ответ компьютера: %d\n", komp_ygadaika);
 				if (answer(komp_ygadaika, people_zagadka) == '>')
-					d_2_4 = komp_ygadaika - 1;
+					d_2_4 = komp_ygadaika;
 				else if (answer(komp_ygadaika, people_zagadka) == '<')
 					d_1_4 = komp_ygadaika + 1;
 				else
