@@ -71,14 +71,14 @@ int main(void)
 				if (chis1 == 2)
 				{
 					r1 = random;
-					random = 1 + random + rand() % (r2-random);
+					random = 1 + r1 + rand() % (r2-r1);
 					printf("Вы загадали: %i?\n Если да(=), напишите: 1\n Если ваше число больше(>), напишите: 2\n Если меньше(<), напишите: 3 \n", random);
 					scanf_s("%i", &chis1);
 				}
 				else 
 				{
 					r2 = random;
-					random = 1 + random - rand() % (r1-random);
+					random = 1 + r1 + rand() % (r2-r1);
 					printf("Вы загадали: %i?\n Если да(=), напишите: 1\n Если ваше число больше(>), напишите: 2\n Если меньше(<), напишите: 3 \n", random);
 					scanf_s("%i", &chis1);
 				}
