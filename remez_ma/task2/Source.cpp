@@ -24,9 +24,10 @@ void main()
 
 	if (type == 1)
 	{
-		ger = (rand() % 1001);
+		ger = 1 + (rand() % 1000);
 		inp = -1;
 		count = 0;
+		printf("Компьютер загадал число от 1 до 1000:\n");
 
 		while (inp != ger)
 		{
