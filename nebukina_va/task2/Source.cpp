@@ -57,25 +57,17 @@ int main()
 			switch (symbol)
 			{
 			case '>':
-			   {
 				min = numb2;
 				break;
-			   }
 			case '<': 
-			   {
 				max = numb2;
 				break;
-			   }
 			case '=': 
-			   {
 				printf("Компьютер угадал число за %i попыток.\n", attempt);
 				break;
-			   }
 			default:
-			   {
 				printf("Введите '=', '<' или '>'\n");
 				break;
-			   }
 			}
 		}
 	}
