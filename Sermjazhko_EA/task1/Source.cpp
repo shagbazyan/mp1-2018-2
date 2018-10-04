@@ -2,7 +2,7 @@
 #include <math.h>
 #include <locale.h>
 
-int main()
+int main(void)
 {
 	setlocale(LC_ALL, "Rus");
 	float h, w, d, l, L, Vp, Vb, Vd, Vz, Vk, m;//высота, ширина, глубина, для полок;
@@ -23,7 +23,7 @@ int main()
 		scanf_s("%f", &d);
 	}
 	L = floor((h - 0.3) / (40.0 + 1.0));
-	printf("количество полок=%f\n", &L);
+	printf("количество полок = %f\n", L);
 
 	Vp = l * (w - 0.3)*d;
 	Vb = 0.3*(d + 1.05)*(h - 0.3);
