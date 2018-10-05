@@ -130,7 +130,9 @@ void mode_2()
 				win = true;
 			attempts++;
 		} while (!(win));
+
 		printf("FINALLY! - says the computer.\n");
+		printf("Number of attempts: %d\n", attempts);
 		printf("\n");
 		printf("Wanna play again?\n");
 		printf("1 - Play; 0 - Exit to main menu\n");
