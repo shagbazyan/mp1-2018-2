@@ -11,7 +11,7 @@ int main() {
 
 	scanf_s("%d", &length);
 	
-	while (length < 2 || length>5) {
+	while (length < 2 || length > 5) {
 		printf("Length not in range between 2 and 5\nEnter new length:\n");
 		scanf_s("%d", &length);
 	}
@@ -27,8 +27,7 @@ int main() {
 	{
 		int r = rand() % 10;
 		int j = 0; 
-		while(j<=i-1){
-			
+		while(j<=i-1){			
 			if (r == number[j]) {
 				r = rand() % 10;
 				j = 0;
@@ -56,9 +55,10 @@ int main() {
 		int bulls = 0;
 		int pow2 = pow;
 		scanf_s("%d", &myNum);
+		
 		for (int i = 0; i < length; i++)
 		{
-			myNumber[i] = (myNum%pow2 * 10) / pow2;
+			myNumber[i] = (myNum % pow2 * 10) / pow2;
 			pow2 /= 10;
 		}
 		
@@ -78,15 +78,12 @@ int main() {
 				}
 			}
 		}
-
 		if (bulls == length) {
 			printf("\nYou win!");
 			break;
 		};
-
 		printf("Cows: %d, Bulls: %d\n", cows, bulls);
 	}
-
 	_getch();
 	return 0;
 }
