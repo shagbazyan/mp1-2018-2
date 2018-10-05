@@ -8,9 +8,17 @@ int main() {
 	srand(time(NULL));
 	int length;
 	printf("Choose number length between 2 and 5\n");
+
 	scanf_s("%d", &length);
+	
+	while (length < 2 || length>5) {
+		printf("Length not in range between 2 and 5\nEnter new length:\n");
+		scanf_s("%d", &length);
+	}
 
 	int number[5];
+
+	printf("Start!\n");
 
 	int r = rand() % 9 + 1;
 	number[0] = r;
@@ -43,7 +51,7 @@ int main() {
 	int myNumber[5];
 	
 	while (true) {
-		printf("Enter your number\n");
+		printf("Enter your number:\n");
 		int cows = 0;
 		int bulls = 0;
 		int pow2 = pow;
