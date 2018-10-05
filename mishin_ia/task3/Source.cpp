@@ -20,8 +20,8 @@ int main() {
 		int r = rand() % 10;
 		int j = 0; 
 		while(j<=i-1){
+			
 			if (r == number[j]) {
-				while(r == number[j])
 				r = rand() % 10;
 				j = 0;
 			}
@@ -29,7 +29,7 @@ int main() {
 		}
 		number[i] = r;
 	}
-	
+
 	int hiddenNumber = 0;
 	int pow = 1;
 
@@ -39,8 +39,6 @@ int main() {
 		pow *= 10;
 	}
 	 
-	
-
 	int myNum;
 	int myNumber[5];
 	
@@ -81,10 +79,6 @@ int main() {
 		printf("Cows: %d, Bulls: %d\n", cows, bulls);
 	}
 
-	
-
-	
-	
 	_getch();
 	return 0;
 }
