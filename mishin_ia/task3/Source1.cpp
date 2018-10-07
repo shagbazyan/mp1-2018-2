@@ -10,10 +10,10 @@ void secondGame() {
 	int length;
 	int flag = 0;
 	printf("Choose number length between 2 and 5\n");
-
 	scanf_s("%d", &length);
 
-	while (length < 2 || length > 5) {
+	while (length < 2 || length > 5) 
+	{
 		printf("Length not in range between 2 and 5\nEnter new length:\n");
 		scanf_s("%d", &length);
 	}
@@ -28,16 +28,16 @@ void secondGame() {
 	}
 
 	int power = 10;
-	power = pow(power, length-1);
+	power = pow(power, length - 1);
 	printf("Enter your number:\n");
-	
+
 	scanf_s("%d", &myNum);
 
 	for (int i = 0; i < length; i++)
 	{
 		myNumber[i] = (myNum % (power * 10)) / power;
 		power /= 10;
-		
+
 	}
 
 	int number[5];
@@ -47,9 +47,8 @@ void secondGame() {
 	int r = rand() % 9 + 1;
 	number[0] = r;
 
-	
 	int attempts = 0;
-	while (attempts < length*50)
+	while (attempts < length * 50)
 	{
 		attempts++;
 		int cows = 0;
@@ -62,8 +61,10 @@ void secondGame() {
 		{
 			r = rand() % 10;
 			int j = 0;
-			while (j <= i - 1) {
-				if ((r == number[j]) || (0 > addict[r])) {
+			while (j <= i - 1) 
+			{
+				if ((r == number[j]) || (0 > addict[r])) 
+				{
 					r = rand() % 10;
 					j = 0;
 				}
@@ -88,7 +89,8 @@ void secondGame() {
 				}
 			}
 		}
-		if (bulls == length) {
+		if (bulls == length) 
+		{
 			flag = 1;
 			printf("\nYour number: ");
 			for (int i = 0; i < length; i++)
@@ -98,16 +100,18 @@ void secondGame() {
 			printf("\nComputer win for %d attempts!", attempts);
 			break;
 		};
-		if ((bulls == 0) && (cows == 0)) {
+		if ((bulls == 0) && (cows == 0)) 
+		{
 			for (int i = 0; i < length; i++)
 			{
-				addict[number[i]] -= 100 ;
+				addict[number[i]] -= 100;
 			}
 		}
-		else {
+		else 
+		{
 			for (int i = 0; i < length; i++)
 			{
-				addict[number[i]] += bulls + cows;// явно выдел€ем цифры, которые точно присутствуют в числе
+				addict[number[i]] += bulls + cows;
 			}
 		}
 	}
@@ -171,6 +175,4 @@ void secondGame() {
 		printf("\nComputer win for %d attemts", attempts);
 	}
 	_getch();
-
-
 }

@@ -26,8 +26,6 @@ int main() {
 		scanf_s("%d", &length);
 	}
 	
-	
-
 	int number[5];
 
 	printf("Start!\n");
