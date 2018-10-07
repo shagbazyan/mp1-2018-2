@@ -2,11 +2,21 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <time.h>
+#include "Header.h"
 
 
 int main() {
+
+	printf("Enter 1 for first mode or 2 for second mode\n");
+	int mode;
+	scanf_s("%d", &mode);
+	if (mode == 2) {
+		secondGame();
+	}
+	
 	srand(time(NULL));
 	int length;
+	
 	printf("Choose number length between 2 and 5\n");
 
 	scanf_s("%d", &length);
@@ -15,6 +25,8 @@ int main() {
 		printf("Length not in range between 2 and 5\nEnter new length:\n");
 		scanf_s("%d", &length);
 	}
+	
+	
 
 	int number[5];
 
