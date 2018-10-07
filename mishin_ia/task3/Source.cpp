@@ -5,12 +5,12 @@
 #include "Header.h"
 
 
-int main() {
-
+int main(){
 	printf("Enter 1 for first mode or 2 for second mode\n");
 	int mode;
 	scanf_s("%d", &mode);
-	if (mode == 2) {
+	if (mode == 2) 
+	{
 		secondGame();
 	}
 	
@@ -21,7 +21,8 @@ int main() {
 
 	scanf_s("%d", &length);
 	
-	while (length < 2 || length > 5) {
+	while (length < 2 || length > 5) 
+	{
 		printf("Length not in range between 2 and 5\nEnter new length:\n");
 		scanf_s("%d", &length);
 	}
@@ -38,7 +39,8 @@ int main() {
 		int r = rand() % 10;
 		int j = 0; 
 		while(j<=i-1){			
-			if (r == number[j]) {
+			if (r == number[j]) 
+			{
 				r = rand() % 10;
 				j = 0;
 			}
@@ -59,7 +61,8 @@ int main() {
 	int myNum;
 	int myNumber[5];
 	
-	while (true) {
+	while (true) 
+	{
 		printf("Enter your number:\n");
 		int cows = 0;
 		int bulls = 0;
@@ -82,13 +85,15 @@ int main() {
 			{
 				for (int j = 0; j < length; j++)
 				{
-					if (myNumber[i] == number[j]) {
+					if (myNumber[i] == number[j]) 
+					{
 						cows++;
 					}
 				}
 			}
 		}
-		if (bulls == length) {
+		if (bulls == length) 
+		{
 			printf("\nYou win!");
 			break;
 		};

@@ -83,7 +83,8 @@ void secondGame() {
 			{
 				for (int j = 0; j < length; j++)
 				{
-					if (myNumber[i] == number[j]) {
+					if (myNumber[i] == number[j]) 
+					{
 						cows++;
 					}
 				}
@@ -99,7 +100,8 @@ void secondGame() {
 			}
 			printf("\nComputer win for %d attempts!", attempts);
 			break;
-		};
+		}
+		
 		if ((bulls == 0) && (cows == 0)) 
 		{
 			for (int i = 0; i < length; i++)
@@ -133,7 +135,6 @@ void secondGame() {
 					num = j;
 					max = addict[j];
 				}
-
 			}
 			maximum[i] = num;
 			addict[num] = 0;
@@ -159,7 +160,8 @@ void secondGame() {
 			{
 				attempts++;
 				testNumber[j] = maximum[i];
-				if (testNumber[j] == myNumber[j]) {
+				if (testNumber[j] == myNumber[j]) 
+				{
 					finalNumber[j] = maximum[i];
 					break;
 				}
