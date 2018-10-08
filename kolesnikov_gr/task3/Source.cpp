@@ -19,12 +19,12 @@ void main()
 	int truth;
 	int popitki;
 	srand(time(NULL));
-	printf("Введите длину числа от 2 до 5\n");
+	printf("Р’РІРµРґРёС‚Рµ РґР»РёРЅСѓ С‡РёСЃР»Р° РѕС‚ 2 РґРѕ 5\n");
 	scanf_s("%i", &dlina);
 	popitki = 0;
 		while ((dlina < 2) || (dlina > 5))
 		{
-			printf("Длина задана неверно, введите новую длину\n");
+			printf("Р”Р»РёРЅР° Р·Р°РґР°РЅР° РЅРµРІРµСЂРЅРѕ, РІРІРµРґРёС‚Рµ РЅРѕРІСѓСЋ РґР»РёРЅСѓ\n");
 			scanf_s("%i", &dlina);
 		}
 		numb[0] = rand() % 9 + 1;
@@ -55,7 +55,7 @@ void main()
 	truth = 0;
 	while (truth == 0)
 	{
-		printf("Введите число\n");
+		printf("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Рѕ\n");
 		scanf_s("%i", &numb2);
 		korovki = 0;
 		bi4ki = 0;
@@ -82,22 +82,22 @@ void main()
 		}
 		if (korovki == 0)
 			if (bi4ki != dlina)
-			    printf("Коров.нет\n");
+			    printf("РљРѕСЂРѕРІ.РЅРµС‚\n");
 		if (bi4ki == 0)
 			if (bi4ki != dlina)
-			    printf("Быков.нет\n");
+			    printf("Р‘С‹РєРѕРІ.РЅРµС‚\n");
 		if (korovki > 0)
 			if (bi4ki != dlina)
-			    printf("Коровы %d\n", korovki);
+			    printf("РљРѕСЂРѕРІС‹ %d\n", korovki);
 		if (bi4ki > 0)
 			if (bi4ki != dlina)
-			    printf("Быки %d\n", bi4ki);
+			    printf("Р‘С‹РєРё %d\n", bi4ki);
 		if (bi4ki == dlina)
 		{
-			printf("Вы угадали число\n");
+			printf("Р’С‹ СѓРіР°РґР°Р»Рё С‡РёСЃР»Рѕ\n");
 			truth = 1;
 		}
 	}
-	printf("Количество попыток %i\n", popitki);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє %i\n", popitki);
 	_getch();
 }
