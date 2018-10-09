@@ -19,53 +19,60 @@ void main()
 	int truth;
 	int popitki;
 	srand(time(NULL));
-	printf("Введите длину числа от 2 до 5\n");
+	printf("Vvedite dlinu chisla ot 2 do 5\n");
 	scanf_s("%i", &dlina);
 	popitki = 0;
-		while ((dlina < 2) || (dlina > 5))
+	while ((dlina < 2) || (dlina > 5))
+	{
+		printf("	Dlina zadana neverno, vvedite novuyu dlinu\n");
+		scanf_s("%i", &dlina);
+	}
+	numb[0] = rand() % 9 + 1;
+	for (i = 1; i < dlina; i++)
+	{
+		numb1 = rand() % 10;
+		for (j = 0; j <= i - 1; j++)
 		{
-			printf("Длина задана неверно, введите новую длину\n");
-			scanf_s("%i", &dlina);
-		}
-		numb[0] = rand() % 9 + 1;
-		for (i = 1; i < dlina; i++)
-		{
-			numb1 = rand() % 10;
-			for (j = 0; j <= i - 1; j++)
+
+			while (numb1 == numb[j])
 			{
-
-				while (numb1 == numb[j])
-				{
-					j = 0;
-					numb1 = rand() % 10;
-				}
-
-				numb[i] = numb1;
+				j = 0;
+				numb1 = rand() % 10;
 			}
-		}
-		numb1 = 0;
-		mult = 1;
-		for (i = dlina - 1; i >= 0; i = i - 1)
-		{
-			numb1 = numb1 + mult * numb[i];
-			mult = mult * 10;
-		}
 
-		printf("%d\n", numb1);
+			numb[i] = numb1;
+		}
+	}
+	numb1 = 0;
+	mult = 1;
+	for (i = dlina - 1; i >= 0; i = i - 1)
+	{
+		numb1 = numb1 + mult * numb[i];
+		mult = mult * 10;
+	}
+
+	printf("%d\n", numb1);
 	truth = 0;
 	while (truth == 0)
 	{
-		printf("Введите число\n");
+		printf("Vvedite chislo\n");
 		scanf_s("%i", &numb2);
 		korovki = 0;
 		bi4ki = 0;
-		mult1 = mult;
-		popitki = popitki + 1; 
+		mult1 = mult / 10;
+		popitki = popitki + 1;
+		printf("mul't %i\n", mult1);
 
-		for (i = 0; i <= dlina; i++)
+		for (i = 0; i < dlina; i++)
 		{
-			number[i] = numb2 % 10;
-			numb2 = numb2 / 10;
+
+			number[i] = (numb2) / mult1;
+			printf("%d\n", number[i]);
+			numb2 %= mult1;
+			printf("chislo %d\n", numb2);
+			mult1 = mult1 / 10;
+
+
 		}
 		for (i = 0; i < dlina; i++)
 		{
@@ -82,22 +89,22 @@ void main()
 		}
 		if (korovki == 0)
 			if (bi4ki != dlina)
-			    printf("Коров.нет\n");
+				printf("Korov.net\n");
 		if (bi4ki == 0)
 			if (bi4ki != dlina)
-			    printf("Быков.нет\n");
+				printf("Bykov.net\n");
 		if (korovki > 0)
 			if (bi4ki != dlina)
-			    printf("Коровы %d\n", korovki);
+				printf("Korovy %d\n", korovki);
 		if (bi4ki > 0)
 			if (bi4ki != dlina)
-			    printf("Быки %d\n", bi4ki);
+				printf("Byki %d\n", bi4ki);
 		if (bi4ki == dlina)
 		{
-			printf("Вы угадали число\n");
+			printf("Vy ugadali chislo\n");
 			truth = 1;
 		}
 	}
-	printf("Количество попыток %i\n", popitki);
+	printf("Kolichestvo popytok %i\n", popitki);
 	_getch();
 }
