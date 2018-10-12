@@ -24,34 +24,35 @@ void main()
 	popitki = 0;
 	while ((dlina < 2) || (dlina > 5))
 	{
-		printf("	Dlina zadana neverno, vvedite novuyu dlinu\n");
+		printf("Dlina zadana neverno, vvedite novuyu dlinu\n");
 		scanf_s("%i", &dlina);
 	}
-	numb[0] = rand() % 9 + 1;
-	for (i = 1; i < dlina; i++)
+	for (int c = 0; c < 100; c++)
 	{
-		numb1 = rand() % 10;
-		for (j = 0; j <= i - 1; j++)
+		numb[0] = rand() % 9 + 1;
+		for (i = 1; i < dlina; i++)
 		{
-
-			while (numb1 == numb[j])
+			numb1 = rand() % 10;
+			for (j = 0; j <= i - 1; j++)
 			{
-				j = 0;
-				numb1 = rand() % 10;
-			}
 
-			numb[i] = numb1;
+				while (numb1 == numb[j])
+				{
+					j = 0;
+					numb1 = rand() % 10;
+				}
+
+				numb[i] = numb1;
+			}
+		}
+		numb1 = 0;
+		mult = 1;
+		for (i = dlina - 1; i >= 0; i = i - 1)
+		{
+			numb1 = numb1 + mult * numb[i];
+			mult = mult * 10;
 		}
 	}
-	numb1 = 0;
-	mult = 1;
-	for (i = dlina - 1; i >= 0; i = i - 1)
-	{
-		numb1 = numb1 + mult * numb[i];
-		mult = mult * 10;
-	}
-
-	printf("%d\n", numb1);
 	truth = 0;
 	while (truth == 0)
 	{
@@ -61,15 +62,12 @@ void main()
 		bi4ki = 0;
 		mult1 = mult / 10;
 		popitki = popitki + 1;
-		printf("mul't %i\n", mult1);
 
 		for (i = 0; i < dlina; i++)
 		{
 
 			number[i] = (numb2) / mult1;
-			printf("%d\n", number[i]);
 			numb2 %= mult1;
-			printf("chislo %d\n", numb2);
 			mult1 = mult1 / 10;
 
 
