@@ -3,7 +3,6 @@
 #include <time.h>
 #include <locale.h>
 #include <stdio.h>
-
 void main()
 {
 	setlocale(LC_ALL, "Rus");
@@ -35,13 +34,11 @@ void main()
 			numb1 = rand() % 10;
 			for (j = 0; j <= i - 1; j++)
 			{
-
 				while (numb1 == numb[j])
 				{
 					j = 0;
 					numb1 = rand() % 10;
 				}
-
 				numb[i] = numb1;
 			}
 		}
@@ -62,15 +59,11 @@ void main()
 		bi4ki = 0;
 		mult1 = mult / 10;
 		popitki = popitki + 1;
-
 		for (i = 0; i < dlina; i++)
 		{
-
 			number[i] = (numb2) / mult1;
 			numb2 %= mult1;
 			mult1 = mult1 / 10;
-
-
 		}
 		for (i = 0; i < dlina; i++)
 		{
