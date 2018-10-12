@@ -1,54 +1,93 @@
 #include <stdio.h>
 #include <math.h>
 #include <cstdlib>
+#include <locale.h>
 void main()
 
-int n, x1, x2, x3, x4, x5, x ;
-float n1, n2, n3, n4, n5;
+{
+	int n, K[4], P[4], i, j, x, B, Kor, x1;
+	i = 0; j = 0;
 
-printf(" Введите количество цифр в числе, от 2 до 5\n");
-scanf("%i", &n);
-while ((n >= 2) && (n <= 5))
-{
-	printf(" Количество цифр в числе от 2 до 5\n");
-	scanf("%i", &n);
-}
-switch (n)
-{
-case 2: 
-{ n1 = 1 + rand() % 9;
-  n2 = rand() % 9;
-  while (n1 == n2)
-  {
-	  n1 = 1 + rand() % 9;
-	  n2 = rand() % 9;
-  }
-	printf(" Введите 2-значное число с неповторяющимися цифрами\n");
-	scanf("%i", &x);
-	while ((x>99) && (x<10))
+	setlocale(LC_ALL, "rus");
+
+	printf(" Введите количество цифр в числе, от 2 до 5\n");
+	scanf_s("%i", &n);
+	while ((n < 1) || (n > 6))
 	{
-		printf(" Количество цифр в числе - 2 \n");
-		scanf("%i", &x);
+		printf(" Количество цифр в числе от 2 до 5\n");
+		scanf_s("%i", &n);
 	}
 
-	x1 = x / 10;
-	x2 = x - x1 * 10;
-	while (x1==x2)
+	for (i = 0; i < n; i++)
 	{
-		printf(" Цифры не должны повторяться\n");
-		scanf ("%i", &x);
+		K[i] = rand() % 9;
+			if (K[1] == 0)  K[1] = rand() % 9 + 1;
+
+		for (j = 0; j < n; j++)
+			if ((K[i] == K[j]) && (i != j)) K[i] = rand() % 9;
+
 	}
 
-	if (n1 == x1) if (n2 == x2) printf("Вы отгадали число"); else 
 
-}
-
-
+	B = 0;
+	Kor = 0;
 
 
+	while (B != n)
+	{
+		printf("Угадайте число из %i", n);
+		printf(" количества цифр");
+		scanf_s("%i", &x);
+		x1 = x;
+
+		for (j = (n - 1); j >= 0; j--)
+		{
+			P[j] = x % 10;
+			x = x / 10;
+		}
+		                                    if (n == 4)
+		                                       {
+			                                        P[0] = P[1];
+			                                        P[1] = P[2];
+			                                        P[2] = P[3];
+			                                        P[3] = P[4];
+	                                            }
+		                            
+		                                         if (n == 3)
+		                                             {
+			                                            P[0] = P[2];
+			                                            P[1] = P[3];
+			                                            P[2] = P[4];
+		                                              }
+
+		                                            if (n == 2)
+		                                                 {
+			                                                P[0] = P[3];
+			                                                P[1] = P[4];
+		
+		                                                  }
+
+		B = 0;
+		Kor = 0;
+
+		for (i = 0; i > n; i++)
+		{
+			for (j = 0; j > n; j++)
+			{
+				if (K[i] == P[j])
+					if (i == j)  
+						B = B + 1; 
+					else 
+						Kor = Kor + 1;
+			}
+
+		}
+		printf("Быков %i", B);
+		printf("Коров %i \n", Kor);
+	}
 
 
-
+	printf("Вы угадали число - %i", x1); 
 
 
 }

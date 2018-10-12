@@ -4,7 +4,7 @@
 #include <locale.h>
 void main()
 {
-	setlocale(LC_ALL, "Rus");
+	
 	int a, x, y, n, min, max;
 	char r;
 	
@@ -15,13 +15,13 @@ void main()
 	n = 1;
 
 	printf("Выберите режим: 1 - компьютер загадывает число, 2 - вы загадываете число\n");
-	scanf("%i", &a);
+	scanf_s("%d", &a);
 
 
-	while ((a != 1) || (a != 2))
+	while ((a <1) || (a > 2))
 	{
 		printf("Режим только 1 или 2: 1 - компьютер загадывает число, 2 - вы загадываете число. Выберите еще раз\n");
-		scanf("%i", &a);
+		scanf_s("%d", &a);
 	}
 
 
@@ -29,56 +29,55 @@ void main()
 	if (a == 1) {
 
 		srand(0);
-		x = 1 + rand() % 100;
+		x = 1 + rand() % 1000;
 
 		printf("Угадайте целое число между 1 и 1000\n");
-		scanf("%i", &y);
+		scanf_s("%d", &y);
 
 
 		while (x != y) {
 
-			if (x < y) printf("Загаданное число меньше \n", &y); else
-				printf("Загаданное число больше \n", &y);
-			scanf("%i", &y);
+			if (x < y) printf("Загаданное число меньше \n", y); else
+				printf("Загаданное число больше \n", y);
+			scanf_s("%d", &y);
 			n = n + 1;
 		}
 
-		printf("Вы отгадали число - ", &x);
-		printf("Попыток ", n);
+		printf("Вы отгадали число %i ", x);
+		printf(". Попыток %i", n);
 	}
 
 	else {
 		printf("Введите целое число в пределах между 1 и 1000\n");
-		scanf("%i", &y);
+		scanf_s("%i", &y);
 		 
 
 		while ((y < 1) || (y > 1000)) {
 			printf("Число должно быть целым и в пределах между 1 и 1000. Введите еще раз\n");
-			scanf("%i", &y);
+			scanf_s("%i", &y);
 		}
-
-		r = '>';
-
+		x = min + rand() % max;
+		r = '!';
+		
 		while (r!='=') {
-			x = min + rand() % max;
+			
 			printf("Это число %i", x);
 			printf("?  Знаками сравнения укажите отношение этого числа к вашему\n");
-			scanf("%ch", &r);
+			scanf_s("%ch", &r);
 			   while ((r!='=') && (r!= '>') && (r!= '<')) 
-			   {
+			  {
 				   printf("Знаки сравнение - это >, <, =. Введите еще раз \n");
-				   scanf("%ch", &r);
+				   scanf_s("%ch", &r);
 			   }
 			   switch (r)
 			   {
-			   case '>': { x = min + rand() % (x - 1); max = x - 1; break; }
-			   case '<': {x = (x + 1) + rand() % max; min = x + 1; break; }
-			   case '=': break;
+			   case '>': {  max = x - 1;  x = min + rand() % max; break; }
+			   case '<': { min = x + 1; x = min + rand() % max; break; }
 			   }
 			   n = n + 1;
 		}
-		printf("Компьютер отгадал число - ", &y);
-		printf("Попыток ", n);
+		printf("Компьютер отгадал число - %i", y);
+		printf("Попыток %i", n);
 	}
 
 
