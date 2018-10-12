@@ -26,8 +26,6 @@ void main()
 		printf("Dlina zadana neverno, vvedite novuyu dlinu\n");
 		scanf_s("%i", &dlina);
 	}
-	for (int c = 0; c < 100; c++)
-	{
 		numb[0] = rand() % 9 + 1;
 		for (i = 1; i < dlina; i++)
 		{
@@ -49,7 +47,6 @@ void main()
 			numb1 = numb1 + mult * numb[i];
 			mult = mult * 10;
 		}
-	}
 	truth = 0;
 	while (truth == 0)
 	{
