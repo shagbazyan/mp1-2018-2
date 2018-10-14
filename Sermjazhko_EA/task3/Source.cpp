@@ -29,7 +29,6 @@ void main()
 			if (i == 0)
 				mass[i] = 1 + rand() % 9;
 			else
-
 				mass[i] = rand() % 10;
 			i++;
 		}
@@ -42,7 +41,6 @@ void main()
 					break;
 				}
 			}
-
 	}
 	byk = 0;
 	while (byk != n)
@@ -73,7 +71,6 @@ void main()
 		}
 		printf("Быков: %d, коров: %d \n", byk, kor);
 	}
-
 	printf("Поздравляю, вы победили! Количество попыток: %d\n", N);
-	scanf_s("%d", a);
+	scanf_s("%d", &a);
 }
