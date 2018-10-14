@@ -22,8 +22,10 @@ int main() {
 	{
 		if ((numbers[i - 1] > numbers[i]) && (numbers[i + 1] > numbers[i])) 
 		{
-			if (flag == 0) max = numbers[i];
-			else if (max < numbers[i]) max = numbers[i];
+			if (flag == 0) 
+				max = numbers[i];
+			else if (max < numbers[i]) 
+				max = numbers[i];
 			flag = 1;
 			i++;
 			k++;
