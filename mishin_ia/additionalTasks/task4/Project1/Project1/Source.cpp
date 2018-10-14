@@ -37,7 +37,8 @@ int main() {
 	{
 		printf("\nk=%d max=%d", k, max);
 	}
-	else printf("\nThis array haven't any local minimums");
+	else 
+		printf("\nThis array haven't any local minimums");
 	
 	_getch();
 	return 0;
