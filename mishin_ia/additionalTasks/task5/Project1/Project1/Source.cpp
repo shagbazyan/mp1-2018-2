@@ -38,6 +38,7 @@ int main() {
 				}
 				else
 				{
+					i--;
 					k++;
 					length = 0;
 				}
@@ -57,6 +58,7 @@ int main() {
 				}
 				else
 				{
+					i--;
 					k++;
 					length = 0;
 				}
