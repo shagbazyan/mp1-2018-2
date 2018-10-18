@@ -30,39 +30,40 @@ void main()
 			x = rand() % (10);
 			if (j != x)
 			{
-				chisZ[i] = x;
+				chisZ[i] = x;//Заполнение массива chisZ
 				j = x;
 				zag = zag + x * r;
-				r = r * 10;
+				r = r * 10;//Увеличение порядка
 				i++;
 			}
 		}
-		proverka1 = 1;
+		proverka1 = 1;//Число сгенерировано правильно
 	}
 
 	printf("Число загадано\n");
-	while (proverka2 == 0)
+
+		
+	while(proverka2==0)
 	{
 		while (dl != n)
 		{
 			printf("Введите предположительную отгадку, т.е. число с НЕПОВТОРЯЮЩИМИСЯ цифрами\n ВНИМАНИЕ! Длина числа(вашей отгадки) должна совпадать с выбранной ранее длиной загаданного числа\n");
 			scanf("%d", &otg);
-			for (i = 0; otg > 0; i++)//Заполнение массива chis
+			for (i = 0; otg > 0; i++)//Заполнение массива chisO
 			{
 				chisO[i] = otg % 10;
 				otg = otg / 10;
 				dl++;
 			}
 		}
-		
 		for (i = 0; i < n; i++)
 		{
 			for (j = 0; j < n; j++)
 			{
-				if (chisZ[i] == chisO[j])
+				if (chisZ[i] == chisO[j])//Сравнение цифр чисел
 				{
 					kolK++;
-					if (i == j)
+					if (i == j)//Сравнение позиций одинаковых цифр
 					{
 						kolB++;
 					}
@@ -74,9 +75,9 @@ void main()
 		if (kolB==n)
 		{
 			printf("Вы угадали число полностью!");
-			proverka2 = 1;
+			proverka2 = 1;//Окончание игры
 		}
-
+		dl = 0; kolK = 0; kolB = 0;//Обнуление переменных для входа в  while и for
 	}
 	scanf("%d", &q);
 }
