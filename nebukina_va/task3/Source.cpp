@@ -3,73 +3,61 @@
 #include <locale.h>
 #include <stdlib.h>
 #include <iostream>
+#include <math.h>
 
 int main()
 {
 	setlocale(LC_ALL, "Rus");
-	int n, number, i;
-	int cow, bull;
-	int comp, c1, c2, c3, c4, c5; // заменить неравенство переменной каждой другой на неравенство всем
-	c1 = 0;
-	c2 = 1;
-	c3 = 2;
-	c4 = 3;
-	c5 = 4;
+	int n, num, i, j; //n - длина числа
+	int cow = 0;
+	int bull = 0;
+	int comp[5]; // число компьютера
+	int number[5]; // число игрока
+	int d, a; // d - делитель
 	srand(time(NULL));
 	printf("Игра 'Быки и коровы'!\n Выберите длину загадываемого числа.\n Введите 2, 3, 4 или 5.\n");
 	scanf_s("%i", &n);
-	switch (n)
+	while ((n < 2) && (n > 5))
 	{
-	case 2 :
-		while (c4 == c5)
-		{
-			c4 = (rand() % 9 + 1);
-			c5 = (rand() % 9 + 1);
-		}
-		comp = 10 * c4 + c5;
-		printf("Введите число выбранной длины.\n");
-		scanf_s("%i", &i);
-		if ((i > 1) && (i < 99))
-			if (((i / 10) == c4) && ((i % 10) == c5))
-				printf("Вы угадали! это число %i", comp);
-			else if (((i / 10) == c4) || ((i % 10) == c5))
-				printf("")
-
-		break;
-	case 3 :
-		while ((c3 == c4) && (c3 == c5) && (c4 == c5))
-		{
-			c3 = (rand() % 9 + 1);
-			c4 = (rand() % 9 + 1);
-			c5 = (rand() % 9 + 1);
-		}
-		comp = 100 * c3 + 10 * c4 + c5;
-		break;
-	case 4 :
-		while ((c2 == c3) && (c2 == c4) && (c2 == c5) && (c3 == c4) && (c3 == c5) && (c4 == c5))
-		{
-			c2 = (rand() % 9 + 1);
-			c3 = (rand() % 9 + 1);
-			c4 = (rand() % 9 + 1);
-			c5 = (rand() % 9 + 1);
-		}
-		comp = 1000 * c2 + 100 * c3 + 10 * c4 + c5;
-		break;
-	case 5 :
-		while ((c1 == c2) && (c1 == c3) && (c1 == c4) && (c1 == c5) && (c2 == c3) && (c2 == c4) && (c2 == c5) && (c3 == c4) && (c3 == c5) && (c4 == c5))
-		{
-			c1 = (rand() % 9 + 1);
-			c2 = (rand() % 9 + 1);
-			c3 = (rand() % 9 + 1);
-			c4 = (rand() % 9 + 1);
-			c5 = (rand() % 9 + 1);
-		}
-		comp = 10000 * c1 + 1000 * c2 + 100 * c3 + 10 * c4 + c5;
-		break;
-	default : 
-		printf("Введите 2, 3, 4 или 5.\n");
-		break;
+		printf("Количество разрядов может быть только 2, 3, 4 или 5.\n");
+		scanf_s("%i", &n);
 	}
-	printf("Введите число выбранной длины.\n");
-	scanf_s("%i", &i);
-}	
+	comp[0] = (rand() % 9 + 1);
+	for (i = 1; i < n; i++)
+	{
+		comp[i] = (rand() % 9 + 1);
+		while (comp[i] == comp[i - 1])
+		{
+			comp[i] = (rand() % 9 + 1);
+		}
+	}
+	printf("Введите Ваш вариант числа с неповторяющимися цифрами.\n");
+	scanf_s("%i", &num);
+	while (bull != n)
+	{
+		for (i = 0; i < n; i++);
+		{
+			a = num;
+			d = pow(10, n - 1);
+			number[i] = a / d;
+			a %= d;
+		}
+		for (i = 0; i < n; i++)
+		{
+			if (number[i] == comp[i])
+				bull++;
+		}
+		for (i = 0; i < n; i++)
+		{
+			for (j = 1; j < n; j++)
+			{
+				if ((i != j)&&(number[i] == comp[j]))
+					cow++;
+			}
+		}
+		printf("Быков: %i\nКоров: %i\n", bull, cow);
+		scanf_s("%i", &num);
+	}
+	printf("Вы угадали! Это число %i.\n", num);
+
+}
