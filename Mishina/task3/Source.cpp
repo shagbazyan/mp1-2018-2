@@ -5,7 +5,7 @@
 void main()
 
 {
-	int n, K[4], P[4], i, j, x, B, Kor, x1;
+	int n, K[5], P[5], i, j, x, B, Kor, x1;
 	i = 0; j = 0;
 
 	setlocale(LC_ALL, "rus");
@@ -18,14 +18,18 @@ void main()
 		scanf_s("%i", &n);
 	}
 
-	for (i = 0; i < n; i++)
+	K[0] = rand() % 10;
+	if (K[0] == 0)
+		K[0] = rand() % 9 + 1;
+	for (i = 1; i < n; i++)
 	{
-		K[i] = rand() % 9;
-			if (K[1] == 0)  K[1] = rand() % 9 + 1;
-
-		for (j = 0; j < n; j++)
-			if ((K[i] == K[j]) && (i != j)) K[i] = rand() % 9;
-
+		K[i] = rand() % 10;
+		for (j = 0; j < i; j++)
+			if (K[i] == K[j])
+			{
+				K[i] = rand() % 10;
+				j = 0;
+			}
 	}
 
 
@@ -36,7 +40,7 @@ void main()
 	while (B != n)
 	{
 		printf("Угадайте число из %i", n);
-		printf(" количества цифр");
+		printf(" количества цифр\n");
 		scanf_s("%i", &x);
 		x1 = x;
 
@@ -45,34 +49,14 @@ void main()
 			P[j] = x % 10;
 			x = x / 10;
 		}
-		                                    if (n == 4)
-		                                       {
-			                                        P[0] = P[1];
-			                                        P[1] = P[2];
-			                                        P[2] = P[3];
-			                                        P[3] = P[4];
-	                                            }
-		                            
-		                                         if (n == 3)
-		                                             {
-			                                            P[0] = P[2];
-			                                            P[1] = P[3];
-			                                            P[2] = P[4];
-		                                              }
-
-		                                            if (n == 2)
-		                                                 {
-			                                                P[0] = P[3];
-			                                                P[1] = P[4];
 		
-		                                                  }
 
 		B = 0;
 		Kor = 0;
 
-		for (i = 0; i > n; i++)
+		for (i = 0; i < n; i++)
 		{
-			for (j = 0; j > n; j++)
+			for (j = 0; j < n; j++)
 			{
 				if (K[i] == P[j])
 					if (i == j)  
