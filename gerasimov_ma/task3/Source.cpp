@@ -57,7 +57,13 @@ int main()
 	do
 	{
 		printf("Enter the length of number between 2 and 5\n");
-		scanf_s("%d", &length);
+		do
+		{
+			scanf_s("%d", &length);
+			if ((length > 5) || (length < 2))
+				printf("You entered wrong length. It should be between 2 and 5!\n");
+		} while ((length > 5) || (length < 2));
+
 		for (i = 0; i <= 9; i++)
 		{
 			number_digits[i][1] = 0;
