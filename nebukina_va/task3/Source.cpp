@@ -37,7 +37,7 @@ int main()
 	scanf_s("%i", &num);
 	while (bull != n)
 	{
-		while ((num <= pow(10, (n-1))) || (num >= pow(10, (n + 1))))
+		while ((num < pow(10, (n-1))) || (num >= pow(10, (n + 1))))
 		{
 			printf("Число не входит в выбранный диапазон!\n");
 			scanf_s("%i", &num);
