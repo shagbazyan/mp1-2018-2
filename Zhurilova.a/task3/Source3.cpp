@@ -101,7 +101,7 @@ void main()
 		{
 			for (j = 0; j < n; j++)
 			{
-				if ((chisZ[i] == chisO[j])&&(i==j))//Если совпали цифры
+				if ((chisZ[i] == chisO[j])&&(i!=j))
 				{
 					kolK++;
 				}
